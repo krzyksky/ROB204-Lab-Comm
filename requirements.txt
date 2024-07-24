@@ -1,2 +1,5 @@
 mediapipe==0.10.14
-notebook
+jupyterlab
+picamera2
+ipywidgets
+jupyterlab-hidecell
