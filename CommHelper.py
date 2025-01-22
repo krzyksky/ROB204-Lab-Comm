@@ -93,6 +93,7 @@ class CommLab(object):
                 detection_result = self.detector.detect(mp_image)
     
                 resize_image = cv2.flip(image, 1)
+                resize_image = cv2.cvtColor(resize_image, cv2.COLOR_BGR2RGB)
                 resize_frame = cv2.resize(resize_image, (0, 0), fx = 0.25, fy = 0.25)
                 _,ret_array = cv2.imencode('.jpg', resize_frame)
                 self.tracking_image.value = ret_array
