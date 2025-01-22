@@ -80,14 +80,14 @@ class CommLab(object):
     def tracking_function(self, tracking_status, tracking_image, tracking_output, tracking_fps):
         self.setText("Tracking starting...")
         with Picamera2() as picam:
-            picam.configure(picam.create_video_configuration(main={"format": 'BGR888', "size": (1296, 730)}))
+            picam.configure(picam.create_video_configuration(main={"format": 'RGB888', "size": (1296, 730)}))
             picam.start()
             self.setText("Tracking started.")
             while self.tracking_run:
                 start_time = time.time()
                 image = picam.capture_array("main")
         
-                mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=image)
+                mp_image = mp.Image(image_format=mp.ImageFormat.SBGR, data=image)
                 detection_result = self.detector.detect(mp_image)
     
                 resize_image = cv2.flip(image, 1)
