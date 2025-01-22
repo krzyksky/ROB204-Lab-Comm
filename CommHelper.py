@@ -86,9 +86,9 @@ class CommLab(object):
             while self.tracking_run:
                 start_time = time.time()
                 image = picam.capture_array("main")
+                image = np.flip(image, 2)
         
                 mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=image)
-                mp_image = np.flip(mp_image, 2)
                 detection_result = self.detector.detect(mp_image)
     
                 resize_image = cv2.flip(image, 1)
