@@ -57,7 +57,7 @@ class CommLab(object):
     tracking_output = widgets.HTML(value="🙈")
     tracking_fps = widgets.HTML(value="FPS: 0")
     
-    disp_container = widgets.VBox([tracking_status, tracking_image, tracking_output, tracking_fps])
+    disp_container = widgets.VBox([tracking_status, tracking_image, tracking_output, tracking_fps]) #Miranda: Try deleteing tracking_image from this list.
     output = widgets.Output()
     TARGET_FPS = 10        
     
